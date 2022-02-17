@@ -15,6 +15,7 @@ class Patient
 
 class Program
 {
+    //runs the main menu until they enter 5 on the main menu to exit
     static void Main(string[] args)
     {
         bool showMenu = true;
@@ -24,6 +25,8 @@ class Program
         }
     }
 
+    //Provides user with a main menu to select the function to be used
+    //user will be sent back here until application is quit out of
     private static bool MainMenu()
     {
         Console.Clear();
@@ -66,6 +69,7 @@ class Program
 
 class WritePatientRecords
 {
+    //Writes data sequentially to Patient.txt file in project folder
     public static void WriteRecords()
     {
         const int END = 999;
@@ -190,7 +194,7 @@ class ReadSpecificPatientRecords
 class MinBalance
 {
     //repeatedly searches a file to produce 
-    //lists of patients who meet a minimum balance requirement
+    //lists of patients who meet a minimum balance requirement specified by user
     public static void FindBalance()
     {
         const char DELIM = ',';
@@ -219,8 +223,7 @@ class MinBalance
                     WriteLine("{0,-5}{1,-12}{2,8}", patient.PatientID, patient.PatientName, patient.OutstandingBalance.ToString("C"));
                 recordIn = reader.ReadLine();
             }
-            Write("\nEnter minimum balance to find or " +
-               END + " to quit >> ");
+            Write("\nEnter minimum balance to find or " + END + " to quit >> ");
             minBalance = Convert.ToDouble(Console.ReadLine());
         }
         reader.Close();
